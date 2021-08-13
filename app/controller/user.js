@@ -100,7 +100,7 @@ class UserController extends Controller {
     async getUserInfo() {
         const { ctx, app } = this
         const token = ctx.request.header.authorization
-        const { username } = await app.jwt.verify(token, app.config.secret)
+        const { username } = await app.jwt.verify(token, app.config.jwt.secret)
         const userInfo = await ctx.service.user.getUserByName(username)
 
         ctx.status = 200
@@ -112,6 +112,40 @@ class UserController extends Controller {
                 signature: userInfo.signature,
                 id: userInfo.id,
                 avatar: userInfo.avatar || defaultAvatar,
+            }
+        }
+    }
+    // 修改用户信息
+    async editUserInfo() {
+        const { ctx, app } = this
+        // 获取新的signature参数， 如果没有默认值为空
+        const { signature = '' } = ctx.request.body
+        try {
+            const token = ctx.request.headers.authorization
+            const decode = await app.jwt.verify(token, app.config.jwt.secret)
+            // 获取解析出来的用户id
+            const { id, username } = decode
+            const userInfo = await ctx.service.user.getUserByName(username)
+            // 修改用户信息
+            const result = await ctx.service.user.editUserInfo({
+                ...userInfo,
+                signature
+            })
+
+            ctx.body = {
+                code: 200,
+                msg: '修改成功',
+                data: {
+                    id,
+                    username,
+                    signature
+                }
+            }
+        } catch (e) {
+            console.log(e)
+            ctx.body = {
+                code: 411,
+                msg: '发生错误，修改失败'
             }
         }
     }

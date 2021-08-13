@@ -13,4 +13,5 @@ module.exports = app => {
   router.post('/login', controller.user.login);
   // router.get('/test', _jwtErr, controller.user.test);
   router.get('/get_userinfo', _jwtErr, controller.user.getUserInfo);
+  router.post('/edit_userinfo', _jwtErr, controller.user.editUserInfo);
 };
