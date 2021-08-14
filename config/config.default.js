@@ -36,6 +36,10 @@ module.exports = appInfo => {
     credentials: true, // 允许 Cookie 跨域跨域
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
+  // 文件读取
+  config.multipart = {
+    mode: 'file'
+  };
 
   exports.mysql = {
     // 单数据库信息配置

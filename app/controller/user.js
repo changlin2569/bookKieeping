@@ -118,8 +118,8 @@ class UserController extends Controller {
     // 修改用户信息
     async editUserInfo() {
         const { ctx, app } = this
-        // 获取新的signature参数， 如果没有默认值为空
-        const { signature = '' } = ctx.request.body
+        // 获取新的signature参数， 如果没有默认为空值
+        const { signature = '', avatar = '' } = ctx.request.body
         try {
             const token = ctx.request.headers.authorization
             const decode = await app.jwt.verify(token, app.config.jwt.secret)
@@ -127,9 +127,10 @@ class UserController extends Controller {
             const { id, username } = decode
             const userInfo = await ctx.service.user.getUserByName(username)
             // 修改用户信息
-            const result = await ctx.service.user.editUserInfo({
+            await ctx.service.user.editUserInfo({
                 ...userInfo,
-                signature
+                signature,
+                avatar
             })
 
             ctx.body = {
@@ -138,7 +139,8 @@ class UserController extends Controller {
                 data: {
                     id,
                     username,
-                    signature
+                    signature,
+                    avatar
                 }
             }
         } catch (e) {

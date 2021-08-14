@@ -1,6 +1,6 @@
 'use strict'
 const fs = require('fs')
-const memont = require('memont')
+const moment = require('moment')
 const mkdirp = require('mkdirp')
 const path = require('path')
 
@@ -10,6 +10,7 @@ class UploadController extends Controller {
     async upload() {
         const { ctx } = this
         const file = ctx.request.files[0]
+        let uploadDir = ''
         try {
             // 读取文件数据
             const fileInfo = fs.readFileSync(file.filepath)
@@ -21,7 +22,7 @@ class UploadController extends Controller {
             // 有无此目录，没有则创建
             await mkdirp(dir)
             // 返回文件保存路径  path.extname获取文件后缀
-            const uploadDir = path.join(dir, date + path.extname(file.filename))
+            uploadDir = path.join(dir, date + path.extname(file.filename))
             // 写入文件
             fs.writeFileSync(uploadDir, fileInfo)
         } catch (e) {
@@ -37,7 +38,7 @@ class UploadController extends Controller {
         ctx.body = {
             code: 200,
             msg: '上传成功',
-            data: uploadDir.replace('/app/g', '')
+            data: uploadDir.replace(/app/g, '')
         }
     }
 }
