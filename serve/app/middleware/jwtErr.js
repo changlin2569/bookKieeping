@@ -6,7 +6,7 @@ module.exports = secret => {
 
         if (token) {
             try {
-                const decode = await ctx.app.jwt.verify(token, secret)
+                await ctx.app.jwt.verify(token, secret)
                 await next()
             } catch (err) {
                 console.log(err)
