@@ -13,7 +13,6 @@ const Login = () => {
   const [captcha, setCaptcha] = useState("");
   const [type, setType] = useState("login");
   const changeHandle = useCallback((captcha) => {
-    console.log(captcha);
     setCaptcha(captcha);
   }, []);
   const loginHandle = async () => {
@@ -39,6 +38,7 @@ const Login = () => {
         });
         Toast.show("登录成功");
         window.sessionStorage.setItem("token", data.token);
+        window.location.href = "/";
       }
     } catch {
       Toast.show("失败");

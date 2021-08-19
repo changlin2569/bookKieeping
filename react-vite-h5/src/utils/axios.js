@@ -7,7 +7,7 @@ const MODE = import.meta.env.MODE // 环境变量
 axios.defaults.baseURL = MODE == 'development' ? 'http://api.chennick.wang/api/' : 'http://api.chennick.wang'
 axios.defaults.withCredentials = true
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'
-axios.defaults.headers['Authorization'] = `${localStorage.getItem('token') || null}`
+axios.defaults.headers['Authorization'] = `${sessionStorage.getItem('token') || null}`
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 axios.interceptors.response.use(res => {
