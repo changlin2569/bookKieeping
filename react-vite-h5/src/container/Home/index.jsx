@@ -6,8 +6,12 @@ import dayjs from "dayjs";
 import { get, REFRESH_STATE, LOAD_STATE } from "./../../utils";
 import PopupType from "./../../components/PopupType";
 import PopupDate from "./../../components/PopupDate";
+import CustomIcon from "./../../components/CustomIcon";
+import PopupAddBill from "./../../components/PopupAddBill";
 
 const Home = () => {
+  // 添加弹窗ref
+  const addRef = useRef();
   // 弹窗ref
   const typeRef = useRef();
   // 当前筛选类型
@@ -51,6 +55,10 @@ const Home = () => {
     setTotalPage(data.totalPage);
     setLoading(LOAD_STATE.success);
     setRefreshing(REFRESH_STATE.success);
+  };
+
+  const addToggle = () => {
+    addRef.current && addRef.current.show();
   };
 
   // 请求列表数据
@@ -139,8 +147,12 @@ const Home = () => {
           </Pull>
         ) : null}
       </div>
+      <div className={s.add} onClick={addToggle}>
+        <CustomIcon type="tianjia" />
+      </div>
       <PopupType ref={typeRef} onSelect={select}></PopupType>
       <PopupDate ref={monthRef} mode="month" onSelect={selectMonth} />
+      <PopupAddBill ref={addRef} onReload={refreshData}></PopupAddBill>
     </div>
   );
 };

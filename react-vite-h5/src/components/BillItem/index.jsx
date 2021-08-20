@@ -26,8 +26,9 @@ const BillItem = ({ bill }) => {
 
   // 账单详情页
   const goToDetail = (item) => {
-    console.log(item);
-    // history.push(`/detail?id=${item.id}`);
+    // console.log(item);
+    console.log(history);
+    history.push(`/detail?id=${item.id}`);
   };
 
   return (

@@ -1,0 +1,124 @@
+.add-wrap {
+  padding-top: 12px;
+  background-color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.add-wrap .header {
+  padding: 0 16px;
+}
+.add-wrap .header .close {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.add-wrap .filter {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-wrap .filter .type span {
+  display: inline-block;
+  background: #f5f5f5;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 24px;
+  border: 1px solid #f5f5f5;
+}
+.add-wrap .filter .type .expense {
+  margin-right: 6px;
+}
+.add-wrap .filter .type .expense.active {
+  background-color: #eafbf6;
+  border-color: #007fff;
+  color: #007fff;
+}
+.add-wrap .filter .type .income.active {
+  background-color: #fbf8f0;
+  border-color: #ecbe25;
+  color: #ecbe25;
+}
+.add-wrap .filter .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 12px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.add-wrap .filter .time .arrow {
+  font-size: 12px;
+  margin-left: 5px;
+}
+.add-wrap .money {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e9e9e9;
+  margin: 0 24px;
+}
+.add-wrap .money .sufix {
+  font-size: 36px;
+  font-weight: bold;
+  vertical-align: top;
+}
+.add-wrap .money .amount {
+  font-size: 40px;
+  padding-left: 10px;
+}
+.add-wrap .type-warp {
+  display: flex;
+  overflow-x: auto;
+  margin: 0 24px;
+  margin-bottom: 20px;
+}
+.add-wrap .type-warp * {
+  touch-action: pan-x;
+}
+.add-wrap .type-warp .type-body {
+  display: flex;
+  white-space: nowrap;
+}
+.add-wrap .type-warp .type-body .type-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 12px 10px 12px;
+}
+.add-wrap .type-warp .type-body .type-item .iconfont-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+.add-wrap .type-warp .type-body .type-item .iconfont-wrap .iconfont {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+}
+.add-wrap .type-warp .type-body .type-item .expense.active {
+  background-color: #007fff;
+}
+.add-wrap .type-warp .type-body .type-item .expense.active .iconfont {
+  color: #fff;
+}
+.add-wrap .type-warp .type-body .type-item .income.active {
+  background-color: #ecbe25;
+}
+.add-wrap .type-warp .type-body .type-item .income.active .iconfont {
+  color: #fff;
+}
+.add-wrap .remark {
+  padding: 0 24px;
+  padding-bottom: 12px;
+  color: #4b67e2;
+}
+.add-wrap .remark :global .za-input--textarea {
+  border: 1px solid #e9e9e9;
+  padding: 10px;
+}
