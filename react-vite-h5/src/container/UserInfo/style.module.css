@@ -1,0 +1,37 @@
+.userinfo {
+  padding: 0 10px;
+}
+.userinfo h1 {
+  border-bottom: 1px solid #e9e9e9;
+  padding-bottom: 10px;
+}
+.userinfo .item {
+  border-bottom: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+}
+.userinfo .item .title {
+  font-size: 16px;
+  padding: 10px;
+}
+.userinfo .item .avatar {
+  display: flex;
+  margin-bottom: 20px;
+}
+.userinfo .item .avatar .avatar-url {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.userinfo .item .avatar .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+.userinfo .item .avatar .desc .upload {
+  width: 100px;
+}
+.userinfo .item .signature {
+  padding: 0 10px;
+}
